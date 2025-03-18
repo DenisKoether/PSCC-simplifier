@@ -1,0 +1,37 @@
+{
+    "resourceType": "StructureDefinition",
+    "url": "https://simplifier.net/PSCC-Test/TNMStage",
+    "name": "TNMStage",
+    "status": "active",
+    "fhirVersion": "4.0.0",
+    "abstract": false,
+    "kind": "resource",
+    "type": "Observation",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+    "derivation": "constraint",
+    "differential": {
+        "element":  [
+            {
+                "id": "Observation.code",
+                "path": "Observation.code",
+                "fixedCodeableConcept": {
+                    "coding":  [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "21908-9",
+                            "display": "TNM Stage"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "Observation.valueCodeableConcept",
+                "path": "Observation.valueCodeableConcept",
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/TNMStage"
+                }
+            }
+        ]
+    }
+}

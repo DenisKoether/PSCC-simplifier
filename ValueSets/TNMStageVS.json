@@ -1,0 +1,27 @@
+{
+    "resourceType": "ValueSet",
+    "url": "https://simplifier.net/PSCC-Test/ValueSet/TNMStageVS",
+    "name": "TNMStageVS",
+    "status": "active",
+    "compose": {
+        "include":  [
+            {
+                "system": "http://cancerstaging.org",
+                "concept":  [
+                    {
+                        "code": "I",
+                        "display": "Stage I"
+                    },
+                    {
+                        "code": "IIA",
+                        "display": "Stage IIA"
+                    },
+                    {
+                        "code": "IVB",
+                        "display": "Stage IVB"
+                    }
+                ]
+            }
+        ]
+    }
+}

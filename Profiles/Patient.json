@@ -1,0 +1,51 @@
+{
+    "resourceType": "StructureDefinition",
+    "url": "https://simplifier.net/PSCC-Test/StructureDefinition-PSCC-Patient",
+    "version": "0.9.0",
+    "name": "Patient",
+    "title": "Patient Profile",
+    "status": "active",
+    "fhirVersion": "4.0.0",
+    "abstract": false,
+    "kind": "resource",
+    "type": "Patient",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+    "derivation": "constraint",
+    "differential": {
+        "element":  [
+            {
+                "id": "Patient.identifier",
+                "path": "Patient.identifier",
+                "mustSupport": true,
+                "min": 1,
+                "max": "1",
+                "short": "Patient Identification Number",
+                "definition": "Date of birth of the patient",
+                "comment": "Identifiant du patient dans l'hôpital (FR) / Patient identifier in the hospital (EN)."
+            },
+            {
+                "id": "Patient.gender",
+                "path": "Patient.gender",
+                "min": 1,
+                "max": "1",
+                "short": "Gender",
+                "definition": "The gender of the patient",
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "http://hl7.org/fhir/ValueSet/administrative-gender"
+                },
+                "comment": "Biological sex (HL7 V3 Code)."
+            },
+            {
+                "id": "Patient.birthDate",
+                "path": "Patient.birthDate",
+                "min": 1,
+                "max": "1",
+                "short": "Date of Birth",
+                "mustSupport": true,
+                "comment": "Format: YYYY-MM-DD"
+            }
+        ]
+    }
+}

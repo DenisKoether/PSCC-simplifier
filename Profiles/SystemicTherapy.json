@@ -1,0 +1,70 @@
+{
+    "resourceType": "StructureDefinition",
+    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/SystemicTherapy",
+    "version": "0.9.0",
+    "name": "SystemicTherapy",
+    "status": "active",
+    "description": "Erfassung von Behandlungen wie Chemotherapie, Hormontherapie, Immuntherapie, etc.",
+    "fhirVersion": "4.0.0",
+    "kind": "resource",
+    "abstract": false,
+    "type": "MedicationStatement",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationStatement",
+    "derivation": "constraint",
+    "differential": {
+        "element":  [
+            {
+                "id": "MedicationStatement.category",
+                "path": "MedicationStatement.category",
+                "min": 1,
+                "max": "1",
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/TreatmentType"
+                },
+                "comment": "Type of treatment (chemotherapy, hormonal therapy, etc.)."
+            },
+            {
+                "id": "MedicationStatement.effectivePeriod.start",
+                "path": "MedicationStatement.effectivePeriod.start",
+                "min": 1,
+                "max": "1",
+                "mustSupport": true,
+                "type":  [
+                    {
+                        "code": "dateTime"
+                    }
+                ],
+                "comment": "Start date of treatment (YYYY/MM/DD)."
+            },
+            {
+                "id": "MedicationStatement.effectivePeriod.end",
+                "path": "MedicationStatement.effectivePeriod.end",
+                "min": 1,
+                "max": "1",
+                "mustSupport": true,
+                "type":  [
+                    {
+                        "code": "dateTime"
+                    }
+                ],
+                "comment": "End date of treatment (YYYY/MM/DD)."
+            },
+            {
+                "id": "MedicationStatement.subject",
+                "path": "MedicationStatement.subject",
+                "min": 1,
+                "mustSupport": true,
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/PSCC-Test/StructureDefinition/Patient"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

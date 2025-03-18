@@ -1,0 +1,13 @@
+{
+    "resourceType": "ValueSet",
+    "url": "https://simplifier.net/PSCC-Test/ValueSet-ICD-O-3-Morphology",
+    "name": "ICD-O-3-Morphology",
+    "status": "active",
+    "compose": {
+        "include":  [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/icd-o-3-morphology"
+            }
+        ]
+    }
+}

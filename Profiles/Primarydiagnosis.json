@@ -1,0 +1,98 @@
+{
+    "resourceType": "StructureDefinition",
+    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/Primarydiagnosis ",
+    "version": "0.9.0",
+    "name": "Primarydiagnosis ",
+    "status": "active",
+    "fhirVersion": "4.0.0",
+    "abstract": false,
+    "kind": "resource",
+    "type": "Condition",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Condition",
+    "derivation": "constraint",
+    "differential": {
+        "element":  [
+            {
+                "id": "Condition.code",
+                "path": "Condition.code",
+                "min": 1,
+                "max": "1",
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-o-3"
+                },
+                "comment": "Primary cancer diagnosis code (ICD-O-3)."
+            },
+            {
+                "id": "Condition.bodySite",
+                "path": "Condition.bodySite",
+                "min": 1,
+                "max": "1",
+                "mustSupport": true,
+                "comment": "Topographic code (ICD-O-3) for the primary tumor location."
+            },
+            {
+                "id": "Condition.bodySite.coding:ICD-O-3-T",
+                "path": "Condition.bodySite.coding",
+                "sliceName": "ICD-O-3-T",
+                "short": "ICD O-3 Topographie",
+                "max": "1",
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-o-3-topography"
+                }
+            },
+            {
+                "id": "Condition.onsetDateTime",
+                "path": "Condition.onsetDateTime",
+                "min": 1,
+                "max": "1",
+                "short": "Date of cancer diagnosis",
+                "mustSupport": true,
+                "comment": "Combines cancer onset and diagnosis date."
+            },
+            {
+                "id": "Condition.subject",
+                "path": "Condition.subject",
+                "short": "Patient who has the condition",
+                "mustSupport": true,
+                "min": 1,
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/PSCC-Test/patient"
+                        ]
+                    }
+                ],
+                "comment": "Reference to the patient who has the condition."
+            },
+            {
+                "id": "Condition.stage.assessment",
+                "path": "Condition.stage.assessment",
+                "mustSupport": true,
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/pscc-test/tnmstage"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "Condition.evidence.code",
+                "path": "Condition.evidence.code",
+                "max": "1",
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "description": "Diagnostic confirmation",
+                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/DiagnosticConfirmation"
+                }
+            }
+        ]
+    }
+}
