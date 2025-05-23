@@ -2,7 +2,7 @@
     "resourceType": "StructureDefinition",
     "url": "https://simplifier.net/PSCC-Test/StructureDefinition/Primarydiagnosis ",
     "version": "0.9.0",
-    "name": "Primarydiagnosis ",
+    "name": "Primarydiagnosis",
     "status": "active",
     "fhirVersion": "4.0.0",
     "abstract": false,
@@ -20,9 +20,9 @@
                 "mustSupport": true,
                 "binding": {
                     "strength": "required",
-                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-o-3"
+                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-10"
                 },
-                "comment": "Primary cancer diagnosis code (ICD-O-3)."
+                "comment": "Primary cancer diagnosis code (ICD-10)."
             },
             {
                 "id": "Condition.bodySite",
@@ -30,19 +30,34 @@
                 "min": 1,
                 "max": "1",
                 "mustSupport": true,
-                "comment": "Topographic code (ICD-O-3) for the primary tumor location."
+                "comment": "Topographic code (ICD-10) for the primary tumor location."
             },
             {
-                "id": "Condition.bodySite.coding:ICD-O-3-T",
+                "id": "Condition.bodySite.coding:ICD-10-T",
                 "path": "Condition.bodySite.coding",
-                "sliceName": "ICD-O-3-T",
-                "short": "ICD O-3 Topographie",
+                "sliceName": "ICD-10-T",
+                "short": "ICD-10 Topographie",
                 "max": "1",
                 "mustSupport": true,
                 "binding": {
                     "strength": "required",
-                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-o-3-topography"
-                }
+                    "valueSet": "http://terminology.hl7.org/ValueSet/icd-10-topography"
+                },
+                "comment": "Include codes from urn:oid:2.16.840.1.113883.6.43.1 where code Regex C\\d\\d\\.\\d(\\d)?"
+            },
+            {
+                "id": "Condition.subject",
+                "path": "Condition.subject",
+                "min": 1,
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/pscc-test/StructureDefinition/patient"
+                        ]
+                    }
+                ],
+                "mustSupport": true
             },
             {
                 "id": "Condition.onsetDateTime",
@@ -52,22 +67,6 @@
                 "short": "Date of cancer diagnosis",
                 "mustSupport": true,
                 "comment": "Combines cancer onset and diagnosis date."
-            },
-            {
-                "id": "Condition.subject",
-                "path": "Condition.subject",
-                "short": "Patient who has the condition",
-                "mustSupport": true,
-                "min": 1,
-                "type":  [
-                    {
-                        "code": "Reference",
-                        "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/patient"
-                        ]
-                    }
-                ],
-                "comment": "Reference to the patient who has the condition."
             },
             {
                 "id": "Condition.stage.assessment",
@@ -83,15 +82,28 @@
                 ]
             },
             {
-                "id": "Condition.evidence.code",
-                "path": "Condition.evidence.code",
-                "max": "1",
-                "mustSupport": true,
-                "binding": {
-                    "strength": "required",
-                    "description": "Diagnostic confirmation",
-                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/DiagnosticConfirmation"
-                }
+                "id": "Condition.evidence",
+                "path": "Condition.evidence",
+                "mustSupport": true
+            },
+            {
+                "id": "Condition.evidence.detail",
+                "path": "Condition.evidence.detail",
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/PSCC-Test/ValueSet-ICD-O-3-Morphology",
+                            "https://simplifier.net/PSCC-Test/StructureDefinition/Histologie"
+                        ]
+                    }
+                ],
+                "mustSupport": false
+            },
+            {
+                "id": "Condition.evidence.detail.reference",
+                "path": "Condition.evidence.detail.reference",
+                "min": 1
             }
         ]
     }

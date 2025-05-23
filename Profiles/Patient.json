@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC-Test/StructureDefinition-PSCC-Patient",
+    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/Patient",
     "version": "0.9.0",
     "name": "Patient",
     "title": "Patient Profile",
