@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/SystemicTherapy",
+    "url": "https://simplifier.net/PSCC/StructureDefinition/SystemicTherapy",
     "version": "0.9.0",
     "name": "SystemicTherapy",
     "status": "active",
@@ -21,7 +21,7 @@
                 "mustSupport": true,
                 "binding": {
                     "strength": "required",
-                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/TreatmentType"
+                    "valueSet": "https://simplifier.net/PSCC/ValueSet/TreatmentType"
                 },
                 "comment": "Type of treatment (chemotherapy, hormonal therapy, etc.)."
             },
@@ -60,7 +60,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/StructureDefinition/Patient"
+                            "https://simplifier.net/PSCC/StructureDefinition/Patient"
                         ]
                     }
                 ]

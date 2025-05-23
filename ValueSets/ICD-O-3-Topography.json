@@ -1,6 +1,6 @@
 {
     "resourceType": "ValueSet",
-    "url": "https://simplifier.net/PSCC-Test/ValueSet-ICD-O-3-Topography",
+    "url": "https://simplifier.net/PSCC/ValueSet-ICD-O-3-Topography",
     "name": "ICD-O-3-Topography",
     "status": "active",
     "compose": {

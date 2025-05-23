@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC-Test/TNMStage",
+    "url": "https://simplifier.net/PSCC/TNMStage",
     "name": "TNMStage",
     "status": "active",
     "fhirVersion": "4.0.0",
@@ -22,14 +22,52 @@
                             "display": "TNM Stage"
                         }
                     ]
-                }
+                },
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.subject",
+                "path": "Observation.subject",
+                "min": 1,
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "https://simplifier.net/PSCC/StructureDefinition/Patient"
+                        ]
+                    }
+                ],
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.focus",
+                "path": "Observation.focus",
+                "type":  [
+                    {
+                        "code": "Reference",
+                        "targetProfile":  [
+                            "http://hl7.org/fhir/StructureDefinition/Resource",
+                            "https://simplifier.net/PSCC/StructureDefinition/Primarydiagnosis"
+                        ]
+                    }
+                ],
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.effective[x]",
+                "path": "Observation.effective[x]",
+                "type":  [
+                    {
+                        "code": "dateTime"
+                    }
+                ]
             },
             {
                 "id": "Observation.valueCodeableConcept",
                 "path": "Observation.valueCodeableConcept",
                 "binding": {
                     "strength": "required",
-                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/TNMStage"
+                    "valueSet": "https://simplifier.net/PSCC/ValueSet/TNMStage"
                 }
             }
         ]

@@ -1,6 +1,6 @@
 {
     "resourceType": "ValueSet",
-    "url": "https://simplifier.net/PSCC-Test/ValueSet/TNMStageVS",
+    "url": "https://simplifier.net/PSCC/ValueSet/TNMStageVS",
     "name": "TNMStageVS",
     "status": "active",
     "compose": {

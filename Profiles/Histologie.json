@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/Histologie",
+    "url": "https://simplifier.net/PSCC/StructureDefinition/Histologie",
     "version": "0.9.0",
     "name": "Histologie",
     "status": "active",
@@ -41,7 +41,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/pscc-test/StructureDefinition/patient"
+                            "https://simplifier.net/pscc/StructureDefinition/patient"
                         ]
                     }
                 ],
@@ -55,10 +55,12 @@
                         "code": "Reference",
                         "targetProfile":  [
                             "http://hl7.org/fhir/StructureDefinition/Resource",
-                            "https://simplifier.net/pscc-test/StructureDefinition/primarydiagnosis"
+                            "https://simplifier.net/pscc/StructureDefinition/primarydiagnosis"
                         ]
                     }
                 ],
+                "min": 1,
+                "max": "1",
                 "mustSupport": true
             },
             {
@@ -82,6 +84,44 @@
                         "map": "urn:adt:dataelement:35:1"
                     }
                 ]
+            },
+            {
+                "id": "Observation.value[x]",
+                "path": "Observation.value[x]",
+                "min": 1,
+                "max": 1,
+                "type":  [
+                    {
+                        "code": "CodeableConcept"
+                    }
+                ],
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.value[x].coding",
+                "path": "Observation.value[x].coding",
+                "min": 1,
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.value[x].coding.system",
+                "path": "Observation.value[x].coding.system",
+                "short": "ICD-O-3",
+                "min": 1,
+                "fixedUri": "Value einfügen :)",
+                "mustSupport": true
+            },
+            {
+                "id": "Observation.value[x].coding.code",
+                "path": "Observation.value[x].coding.code",
+                "short": "Morphologie",
+                "min": 1,
+                "mustSupport": true,
+                "binding": {
+                    "strength": "required",
+                    "description": "ICD-O-3 Morphologie",
+                    "valueSet": "https://simplifier.net/PSCC/ValueSet-ICD-O-3-Morphology"
+                }
             }
         ]
     }

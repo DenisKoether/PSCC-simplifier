@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC-Test/StructureDefinition/Progress",
+    "url": "https://simplifier.net/PSCC/StructureDefinition/Progress",
     "version": "0.9.0",
     "name": "Progress",
     "status": "active",
@@ -25,7 +25,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/StructureDefinition/Patient"
+                            "https://simplifier.net/PSCC/StructureDefinition/Patient"
                         ]
                     }
                 ],
@@ -38,7 +38,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/StructureDefinition/Encounter"
+                            "https://simplifier.net/PSCC/StructureDefinition/Encounter"
                         ]
                     }
                 ],
@@ -59,7 +59,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/StructureDefinition/Progress"
+                            "https://simplifier.net/PSCC/StructureDefinition/Progress"
                         ]
                     }
                 ]
@@ -71,7 +71,7 @@
                     {
                         "code": "Reference",
                         "targetProfile":  [
-                            "https://simplifier.net/PSCC-Test/StructureDefinition/Primaerdiagnosis"
+                            "https://simplifier.net/PSCC/StructureDefinition/Primaerdiagnosis"
                         ]
                     }
                 ],
@@ -84,7 +84,7 @@
                 "max": "1",
                 "binding": {
                     "strength": "required",
-                    "valueSet": "https://simplifier.net/PSCC-Test/ValueSet/TumorEventType"
+                    "valueSet": "https://simplifier.net/PSCC/ValueSet/TumorEventType"
                 },
                 "comment": "Type of tumor event (primary, recurrence, metastasis, unknown)."
             }

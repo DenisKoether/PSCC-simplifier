@@ -1,6 +1,6 @@
 {
     "resourceType": "ValueSet",
-    "url": "https://simplifier.net/PSCC-Test/ValueSet/TumorEventType",
+    "url": "https://simplifier.net/PSCC/ValueSet/TumorEventType",
     "name": "TumorEventType",
     "status": "active",
     "compose": {

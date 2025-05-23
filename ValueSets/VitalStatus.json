@@ -1,6 +1,6 @@
 {
     "resourceType": "ValueSet",
-    "url": "https://simplifier.net/PSCC-Test/ValueSet/Vitalstatus",
+    "url": "https://simplifier.net/PSCC/ValueSet/Vitalstatus",
     "name": "VitalStatus",
     "status": "active",
     "publisher": "PSCC",
@@ -11,11 +11,11 @@
                 "system": "http://terminology.hl7.org/CodeSystem/v3-EntityStatus",
                 "concept":  [
                     {
-                        "code": "active",
+                        "code": "alive",
                         "display": "Alive"
                     },
                     {
-                        "code": "inactive",
+                        "code": "deceased",
                         "display": "Deceased"
                     }
                 ]
