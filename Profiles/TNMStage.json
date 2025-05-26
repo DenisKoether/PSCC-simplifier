@@ -1,6 +1,6 @@
 {
     "resourceType": "StructureDefinition",
-    "url": "https://simplifier.net/PSCC/TNMStage",
+    "url": "https://simplifier.net/PSCC/TNMStage2",
     "name": "TNMStage",
     "status": "active",
     "fhirVersion": "4.0.0",
@@ -10,66 +10,89 @@
     "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
     "derivation": "constraint",
     "differential": {
-        "element":  [
+      "element": [
+        {
+          "id": "Observation.code",
+          "path": "Observation.code",
+          "fixedCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "21908-9",
+                "display": "TNM Stage"
+              }
+            ]
+          },
+          "mustSupport": true
+        },
+        {
+          "id": "Observation.subject",
+          "path": "Observation.subject",
+          "min": 1,
+          "type": [
             {
-                "id": "Observation.code",
-                "path": "Observation.code",
-                "fixedCodeableConcept": {
-                    "coding":  [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "21908-9",
-                            "display": "TNM Stage"
-                        }
-                    ]
-                },
-                "mustSupport": true
-            },
-            {
-                "id": "Observation.subject",
-                "path": "Observation.subject",
-                "min": 1,
-                "type":  [
-                    {
-                        "code": "Reference",
-                        "targetProfile":  [
-                            "https://simplifier.net/PSCC/StructureDefinition/Patient"
-                        ]
-                    }
-                ],
-                "mustSupport": true
-            },
-            {
-                "id": "Observation.focus",
-                "path": "Observation.focus",
-                "type":  [
-                    {
-                        "code": "Reference",
-                        "targetProfile":  [
-                            "http://hl7.org/fhir/StructureDefinition/Resource",
-                            "https://simplifier.net/PSCC/StructureDefinition/Primarydiagnosis"
-                        ]
-                    }
-                ],
-                "mustSupport": true
-            },
-            {
-                "id": "Observation.effective[x]",
-                "path": "Observation.effective[x]",
-                "type":  [
-                    {
-                        "code": "dateTime"
-                    }
-                ]
-            },
-            {
-                "id": "Observation.valueCodeableConcept",
-                "path": "Observation.valueCodeableConcept",
-                "binding": {
-                    "strength": "required",
-                    "valueSet": "https://simplifier.net/PSCC/ValueSet/TNMStage"
-                }
+              "code": "Reference",
+              "targetProfile": [
+                "https://simplifier.net/PSCC/StructureDefinition/Patient"
+              ]
             }
-        ]
+          ],
+          "mustSupport": true
+        },
+        {
+          "id": "Observation.focus",
+          "path": "Observation.focus",
+          "type": [
+            {
+              "code": "Reference",
+              "targetProfile": [
+                "http://hl7.org/fhir/StructureDefinition/Resource",
+                "https://simplifier.net/PSCC/StructureDefinition/Primarydiagnosis"
+              ]
+            }
+          ],
+          "mustSupport": true
+        },
+        {
+          "id": "Observation.effective[x]",
+          "path": "Observation.effective[x]",
+          "type": [
+            {
+              "code": "dateTime"
+            }
+          ]
+        },
+        {
+          "id": "Observation.value[x]",
+          "path": "Observation.value[x]",
+          "type": [
+            {
+              "code": "CodeableConcept"
+            }
+          ],
+          "mustSupport": true
+        },
+        {
+          "id": "Observation.value[x].coding.version",
+          "path": "Observation.value[x].coding.version",
+          "short": "UICC-Version",
+          "binding": {
+            "strength": "extensible",
+            "description": "Valid Versions 6,7,8"
+          }
+        },
+        {
+          "id": "Observation.value[x].coding.code",
+          "path": "Observation.value[x].coding.code",
+          "short": "UICC Stage",
+          "min": 1,
+          "mapping": [
+            {
+  
+            }
+          ],
+          "mustSupport": true
+        }
+      ]
     }
-}
+  }
